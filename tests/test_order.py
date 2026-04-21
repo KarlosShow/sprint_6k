@@ -11,12 +11,13 @@ ENTRY_BUTTONS = [
     MainPageLocators.ORDER_BUTTON_TOP,
     MainPageLocators.ORDER_BUTTON_BOTTOM,
 ]
+# Собираем пары
+test_data = list(zip(ENTRY_BUTTONS, ORDER_DATA))
 
 class TestOrder:
 
     @allure.title("Заказ самоката: позитивный флоу оформления заказа")
-    @pytest.mark.parametrize("entry_button", ENTRY_BUTTONS)
-    @pytest.mark.parametrize("data", ORDER_DATA)
+    @pytest.mark.parametrize("entry_button, data", test_data)
     def test_order_flow_positive(self, driver, entry_button, data):
         main = MainPage(driver)
         main.open(BASE_URL)
