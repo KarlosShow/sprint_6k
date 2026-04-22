@@ -4,50 +4,7 @@ from locators.main_page_locators import MainPageLocators
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 class MainPage(BasePage):
-    #def click_order_button(self, button_locator):
-           # with allure.step("Нажать кнопку 'Заказать'"):
-
-             #   button = self.wait.until(EC.presence_of_element_located(button_locator)
-        #)
-
-        #👇 скролл к кнопке
-       #     self.driver.execute_script(
-       #     "arguments[0].scrollIntoView({block: 'center'});", button)
-
-        #   кликабельность
-       #     self.wait.until(
-      #      EC.element_to_be_clickable(button_locator)
-        #)
-
-       #     button.click()
-    #def click_order_button(self, button_locator):
-        #with allure.step("Нажать кнопку 'Заказать'"):
-
-           # try:
-            #  пробуем найти кнопку сразу (верхняя)
-               # button = self.wait.until(
-              #  EC.presence_of_element_located(button_locator)
-           # )
-          #  except:
-            #  если не нашли — скроллим вниз (для нижней)
-           #     self.driver.execute_script(
-          #      "window.scrollTo(0, document.body.scrollHeight);"
-           # )
-          #  button = self.wait.until(
-         #       EC.presence_of_element_located(button_locator)
-           # )
-
-        #  аккуратно доводим до центра
-       # self.driver.execute_script(
-       #     "arguments[0].scrollIntoView({block: 'center'});", button
-       #3 )
-
-        #  ждём кликабельности
-        #self.wait.until(
-        #    EC.element_to_be_clickable(button_locator)
-       # )
-
-       # button.click()
+    
     def click_order_button(self, button_locator):
         with allure.step("Нажать кнопку 'Заказать'"):
 
