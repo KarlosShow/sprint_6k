@@ -3,7 +3,7 @@ import allure
 from selenium import webdriver
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def driver():
     driver = webdriver.Firefox()
     driver.maximize_window()
