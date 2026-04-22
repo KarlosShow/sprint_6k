@@ -10,7 +10,7 @@ class MainPage(BasePage):
              #   button = self.wait.until(EC.presence_of_element_located(button_locator)
         #)
 
-        # скролл к кнопке
+        #👇 скролл к кнопке
        #     self.driver.execute_script(
        #     "arguments[0].scrollIntoView({block: 'center'});", button)
 
