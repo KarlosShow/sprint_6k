@@ -7,24 +7,22 @@ class MainPage(BasePage):
     
     def click_order_button(self, button_locator):
         with allure.step("Нажать кнопку 'Заказать'"):
+            
+            self.scroll_to_bottom()
 
-            self.driver.execute_script(
-            "window.scrollTo(0, document.body.scrollHeight);"
-        )
+            self.wait_for_elements(button_locator)
 
-        buttons = self.driver.find_elements(*button_locator)
+            buttons = self.find_all(button_locator)
 
-        if not buttons:
-            raise AssertionError("Кнопка 'Заказать' не найдена")
+            if not buttons:
+                raise AssertionError("Кнопка 'Заказать' не найдена")
 
-        button = buttons[-1]
+            button = buttons[-1]
 
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView({block: 'center'});",
-            button
-        )
+            self.scroll_to_element(button)
 
-        button.click()
+            button.click()
+     
 
     def open_faq_answer(self, index: int):
         with allure.step(f"Открыть вопрос FAQ #{index}"):
@@ -41,6 +39,8 @@ class MainPage(BasePage):
     def click_yandex_logo(self):
         with allure.step("Нажать на логотип 'Яндекс'"):
             self.click(MainPageLocators.YANDEX_LOGO)
+
     def accept_cookies(self):
-        cookie_button = self.driver.find_element(By.ID, "rcc-confirm-button")
-        cookie_button.click()
+         with allure.step("Принять куки"):
+            cookie_button = self.driver.find_element(By.ID, "rcc-confirm-button")
+            cookie_button.click()

@@ -22,3 +22,7 @@ ORDER_DATA = [
         "comment": "Заказ 2"
     }
 ]
+BUTTON_DATA_PAIRS = [
+    ("ORDER_BUTTON_TOP", ORDER_DATA[0]),    # первая кнопка — первый заказ
+    ("ORDER_BUTTON_BOTTOM", ORDER_DATA[1])  # вторая кнопка — второй заказ
+]

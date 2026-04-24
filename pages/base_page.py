@@ -37,3 +37,28 @@ class BasePage:
     def switch_to_last_window(self):
         with allure.step("Переключиться на последнюю вкладку"):
             self.driver.switch_to.window(self.driver.window_handles[-1])
+
+
+
+    def scroll_to_bottom(self):
+        with allure.step("Прокрутить страницу вниз"):
+            self.driver.execute_script(
+            "window.scrollTo(0, document.body.scrollHeight);"
+        )
+
+    def scroll_to_element(self, element):
+        with allure.step("Прокрутить к элементу"):
+            self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            element
+        )
+
+    def find_all(self, locator):
+        with allure.step(f"Найти все элементы: {locator}"):
+            return self.driver.find_elements(*locator)
+
+    def wait_for_elements(self, locator):
+        with allure.step(f"Дождаться появления элементов: {locator}"):
+            return self.wait.until(
+            lambda d: len(d.find_elements(*locator)) > 0
+        )

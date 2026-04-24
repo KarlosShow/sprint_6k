@@ -6,12 +6,12 @@ from data.urls import BASE_URL
 from data.faq_data import FAQ_CASES
 
 class TestFAQ:
-    @allure.title("FAQ: при клике на вопрос отображается корректный ответ")
+    @allure.title("Проверка открытия ответа в FAQ")
     @pytest.mark.parametrize("index, expected_part", FAQ_CASES)
-    def test_faq_answer_opens(self, driver, index, expected_part):
-        page = MainPage(driver)
-        page.open(BASE_URL)
-        page.accept_cookies()
-        page.open_faq_answer(index)
-        answer_text = page.get_faq_answer_text(index)
+    def test_faq_answer_opens(self, main_page, index, expected_part):
+
+        main_page.open_faq_answer(index)
+
+        answer_text = main_page.get_faq_answer_text(index)
+
         assert expected_part in answer_text

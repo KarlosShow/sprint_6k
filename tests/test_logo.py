@@ -9,22 +9,22 @@ from selenium.webdriver.support import expected_conditions as EC
 class TestLogos:
 
     @allure.title("Логотип Самоката ведёт на главную страницу Самоката")
-    def test_scooter_logo_opens_home(self, driver):
-        page = MainPage(driver)
-        page.open(BASE_URL)
-        page.accept_cookies()
-        page.click_order_button(MainPageLocators.ORDER_BUTTON_TOP)
-        page.click_scooter_logo()
-        assert page.get_current_url() == BASE_URL
+    def test_scooter_logo_opens_home(self, main_page):
+
+        main_page.click_order_button(MainPageLocators.ORDER_BUTTON_TOP)
+        main_page.click_scooter_logo()
+
+        assert main_page.get_current_url() == BASE_URL
+
 
     @allure.title("Логотип Яндекса открывает Дзен в новой вкладке")
-    def test_yandex_logo_opens_dzen_in_new_tab(self, driver):
-        page = MainPage(driver)
-        page.open(BASE_URL)
-        page.accept_cookies()
-        page.click_yandex_logo()
-        page.switch_to_last_window()
-        WebDriverWait(driver, 10).until(
-        EC.url_contains(DZEN_URL_PART)
+    def test_yandex_logo_opens_dzen_in_new_tab(self, main_page):
+
+        main_page.click_yandex_logo()
+        main_page.switch_to_last_window()
+
+        WebDriverWait(main_page.driver, 10).until(
+            EC.url_contains(DZEN_URL_PART)
         )
-        assert DZEN_URL_PART in page.get_current_url()
+
+        assert DZEN_URL_PART in main_page.get_current_url()
