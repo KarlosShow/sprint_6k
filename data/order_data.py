@@ -1,0 +1,28 @@
+ORDER_DATA = [
+    {
+        "name": "Серго",
+        "surname": "Сухумский",
+        "address": "Москва, Раменки, 11",
+        "metro": "Раменки",
+        "phone": "+79776006060",
+        "date": "22.04.2026",
+        "rent": "двое суток",
+        "color": "black",
+        "comment": "Заказ 1"
+    },
+    {
+        "name": "Анна",
+        "surname": "Хорошева",
+        "address": "Москва, ул. Раменки 14к2",
+        "metro": "Раменки",
+        "phone": "+79779009090",
+        "date": "23.04.2026",
+        "rent": "двое суток",
+        "color": "grey",
+        "comment": "Заказ 2"
+    }
+]
+BUTTON_DATA_PAIRS = [
+    ("ORDER_BUTTON_TOP", ORDER_DATA[0]),    # первая кнопка — первый заказ
+    ("ORDER_BUTTON_BOTTOM", ORDER_DATA[1])  # вторая кнопка — второй заказ
+]
